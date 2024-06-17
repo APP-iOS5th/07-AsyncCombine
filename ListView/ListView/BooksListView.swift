@@ -91,5 +91,7 @@ private struct BookRowView: View {
 }
 
 #Preview {
-    BooksListView()
+    NavigationStack {
+        BooksListView()
+    }
 }
