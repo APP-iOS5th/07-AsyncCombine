@@ -8,7 +8,18 @@
 import SwiftUI
 
 private class BooksViewModel: ObservableObject {
-    @Published var books: [Book] = Book.samples
+    @Published var books: [Book] = [Book]()
+    @Published var fetching = false
+    
+    @MainActor
+    func fetchData() async {
+        fetching = true
+        do {
+            try await Task.sleep(for: .seconds(2))
+        } catch {}
+        books = Book.samples
+        fetching = false
+    }
 }
 
 struct BooksListView: View {
@@ -17,6 +28,16 @@ struct BooksListView: View {
     var body: some View {
         List(viewModel.books) { book in
             BookRowView(book: book)
+        }
+        .overlay {
+            if viewModel.fetching {
+                ProgressView("Fetching data, please wait...")
+                    .progressViewStyle(CircularProgressViewStyle())
+            }
+        }
+        .animation(.default, value: viewModel.books)
+        .task {
+            await viewModel.fetchData()
         }
     }
 }
