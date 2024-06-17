@@ -13,6 +13,7 @@
 		37AF62F42C1FC39A00001F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37AF62F32C1FC39A00001F4D /* Assets.xcassets */; };
 		37AF62F72C1FC48F00001F4D /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF62F62C1FC48F00001F4D /* Book.swift */; };
 		37AF62F92C1FD28100001F4D /* BookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF62F82C1FD28100001F4D /* BookRowView.swift */; };
+		37AF63552C202AB100001F4D /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF63542C202AB100001F4D /* BookDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		37AF62F32C1FC39A00001F4D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37AF62F62C1FC48F00001F4D /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		37AF62F82C1FD28100001F4D /* BookRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRowView.swift; sourceTree = "<group>"; };
+		37AF63542C202AB100001F4D /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				37AF62E52C1FC2EF00001F4D /* BookShelfApp.swift */,
 				37AF62E72C1FC2EF00001F4D /* BookListView.swift */,
 				37AF62F82C1FD28100001F4D /* BookRowView.swift */,
+				37AF63542C202AB100001F4D /* BookDetailView.swift */,
 				37AF62F32C1FC39A00001F4D /* Assets.xcassets */,
 				37AF62EB2C1FC2F100001F4D /* Preview Content */,
 			);
@@ -153,6 +156,7 @@
 			files = (
 				37AF62E82C1FC2EF00001F4D /* BookListView.swift in Sources */,
 				37AF62E62C1FC2EF00001F4D /* BookShelfApp.swift in Sources */,
+				37AF63552C202AB100001F4D /* BookDetailView.swift in Sources */,
 				37AF62F92C1FD28100001F4D /* BookRowView.swift in Sources */,
 				37AF62F72C1FC48F00001F4D /* Book.swift in Sources */,
 			);
