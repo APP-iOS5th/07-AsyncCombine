@@ -13,6 +13,7 @@
 		37AF63282C1FEF7900001F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37AF63272C1FEF7900001F4D /* Preview Assets.xcassets */; };
 		37AF632F2C1FF22500001F4D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF632E2C1FF22500001F4D /* ContentView.swift */; };
 		37AF63312C1FF67C00001F4D /* EnvironmentObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF63302C1FF67C00001F4D /* EnvironmentObjectView.swift */; };
+		37AF63332C1FFC5300001F4D /* SettingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF63322C1FFC5300001F4D /* SettingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		37AF63272C1FEF7900001F4D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		37AF632E2C1FF22500001F4D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		37AF63302C1FF67C00001F4D /* EnvironmentObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentObjectView.swift; sourceTree = "<group>"; };
+		37AF63322C1FFC5300001F4D /* SettingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				37AF63262C1FEF7900001F4D /* Preview Content */,
 				37AF632E2C1FF22500001F4D /* ContentView.swift */,
 				37AF63302C1FF67C00001F4D /* EnvironmentObjectView.swift */,
+				37AF63322C1FFC5300001F4D /* SettingScreen.swift */,
 			);
 			path = StateManagement;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37AF63332C1FFC5300001F4D /* SettingScreen.swift in Sources */,
 				37AF63232C1FEF7700001F4D /* ParentView.swift in Sources */,
 				37AF63312C1FF67C00001F4D /* EnvironmentObjectView.swift in Sources */,
 				37AF63212C1FEF7700001F4D /* StateManagementApp.swift in Sources */,
