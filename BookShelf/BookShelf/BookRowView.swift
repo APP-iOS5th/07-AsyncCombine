@@ -1,34 +1,11 @@
 //
-//  ContentView.swift
+//  BookRowView.swift
 //  BookShelf
 //
 //  Created by Jungman Bae on 6/17/24.
 //
 
 import SwiftUI
-
-struct ContentView: View {
-    var books: [Book] = Book.sampleBooks
-    
-    var body: some View {
-        List(books) { book in
-            BookRowView(book: book)
-        }
-        .listStyle(.plain)
-    }
-}
-
-#Preview {
-    ContentView()
-}
-
-//이전코드
-//struct ContentView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    ContentView()
-//      .previewLayout(.sizeThatFits)
-//  }
-//}
 
 struct BookRowView: View {
     var book: Book
@@ -49,4 +26,8 @@ struct BookRowView: View {
             Spacer()
         }
     }
+}
+
+#Preview {
+    BookRowView(book: Book(title: "", author: "", isbn: "", pages: 0))
 }
