@@ -21,7 +21,7 @@ class UserProfile: ObservableObject {
 }
 
 struct EnvironmentObjectView: View {
-    @StateObject var profile = UserProfile(name: "Peter",
+    @StateObject var profile = UserProfile(name: "Peter1",
                                            favoriteProgrammingLanguage: "Swift",
                                            favoriteColor: .pink)
     @State var isSettingShown = false
