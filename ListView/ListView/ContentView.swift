@@ -29,7 +29,6 @@ private struct CustomRowView: View {
                 .font(.subheadline)
         }
     }
-    
 }
 
 #Preview {
