@@ -36,6 +36,10 @@ NotificationCenter.default.post(name: .didUpdateOrderStatus,
                                 object: pizzaOrder,
                                 userInfo: ["status": OrderStatus.processing])
 
+NotificationCenter.default.post(name: .didUpdateOrderStatus,
+                                object: pizzaOrder,
+                                userInfo: ["status": OrderStatus.delivered])
+
 //
 
 //: [Next](@next)
