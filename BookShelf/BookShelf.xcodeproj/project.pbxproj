@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		377923482C21080700C331EA /* BookEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377923472C21080700C331EA /* BookEditView.swift */; };
 		37AF62E62C1FC2EF00001F4D /* BookShelfApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF62E52C1FC2EF00001F4D /* BookShelfApp.swift */; };
 		37AF62E82C1FC2EF00001F4D /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AF62E72C1FC2EF00001F4D /* BookListView.swift */; };
 		37AF62ED2C1FC2F100001F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37AF62EC2C1FC2F100001F4D /* Preview Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		377923472C21080700C331EA /* BookEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEditView.swift; sourceTree = "<group>"; };
 		37AF62E22C1FC2EF00001F4D /* BookShelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookShelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37AF62E52C1FC2EF00001F4D /* BookShelfApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfApp.swift; sourceTree = "<group>"; };
 		37AF62E72C1FC2EF00001F4D /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				37AF62E72C1FC2EF00001F4D /* BookListView.swift */,
 				37AF62F82C1FD28100001F4D /* BookRowView.swift */,
 				37AF63542C202AB100001F4D /* BookDetailView.swift */,
+				377923472C21080700C331EA /* BookEditView.swift */,
 				37AF62F32C1FC39A00001F4D /* Assets.xcassets */,
 				37AF62EB2C1FC2F100001F4D /* Preview Content */,
 			);
@@ -159,6 +162,7 @@
 				37AF63552C202AB100001F4D /* BookDetailView.swift in Sources */,
 				37AF62F92C1FD28100001F4D /* BookRowView.swift in Sources */,
 				37AF62F72C1FC48F00001F4D /* Book.swift in Sources */,
+				377923482C21080700C331EA /* BookEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
