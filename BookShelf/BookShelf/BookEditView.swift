@@ -7,51 +7,65 @@
 
 import SwiftUI
 
+
+func checkISBN(isbn: String) -> Bool {
+  guard !isbn.isEmpty else {
+    return false
+  }
+  
+  let sum = isbn
+    .compactMap { $0.wholeNumberValue }
+    .enumerated()
+    .map { $0.offset & 1 == 1 ? 3 * $0.element : $0.element }
+    .reduce(0, +)
+  
+  return sum % 10 == 0
+}
+
+class BookEditViewModel: ObservableObject {
+    @Published var book: Book
+    var isISBNValid: Bool {
+        checkISBN(isbn: book.isbn)
+    }
+    
+    init(book: Book) {
+        self.book = book
+    }
+    
+}
+
 struct BookEditView: View {
-    @Binding var book: Book
-    @State var isISBNValid = false
+    @ObservedObject var bookEditViewModel: BookEditViewModel
+    
+    init(book: Book) {
+        self.bookEditViewModel = BookEditViewModel(book: book)
+    }
     
     var body: some View {
         Form {
-            TextField("Book title", text: $book.title)
-            Image(book.largeCoverImageName)
-            TextField("Author", text: $book.author)
+            TextField("Book title", text: $bookEditViewModel.book.title)
+            Image(bookEditViewModel.book.largeCoverImageName)
+            TextField("Author", text: $bookEditViewModel.book.author)
             VStack(alignment: .leading) {
-                if !isISBNValid {
+                if !bookEditViewModel.isISBNValid {
                     Text("ISBN is invalid")
                         .font(.caption)
                         .foregroundStyle(Color.red)
                 }
-                TextField("ISBN", text: $book.isbn)
+                TextField("ISBN", text: $bookEditViewModel.book.isbn)
             }
-            TextField("Pages", value: $book.pages,
+            TextField("Pages", value: $bookEditViewModel.book.pages,
                       formatter: NumberFormatter())
-            Toggle("Read", isOn: $book.isRead)
+            Toggle("Read", isOn: $bookEditViewModel.book.isRead)
         }
-        .onChange(of: book.isbn) {
-            print("TEST \(self.isISBNValid)")
-            print("isbn: \(book.isbn)")
-            self.isISBNValid = checkISBN(isbn: book.isbn)
-            
+        .onChange(of: bookEditViewModel.book.isbn) {
+            print("TEST \(bookEditViewModel.isISBNValid)")
+            print("isbn: \(bookEditViewModel.book.isbn)")      
         }
-    }
-    
-    func checkISBN(isbn: String) -> Bool {
-      guard !isbn.isEmpty else {
-        return false
-      }
-      
-      let sum = isbn
-        .compactMap { $0.wholeNumberValue }
-        .enumerated()
-        .map { $0.offset & 1 == 1 ? 3 * $0.element : $0.element }
-        .reduce(0, +)
-      
-      return sum % 10 == 0
-    }
 
+    }
 }
 
 #Preview {
-    BookEditView(book: .constant(Book.sampleBooks[0]))
+    BookEditView(book: Book.sampleBooks[0])
 }
