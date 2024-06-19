@@ -96,7 +96,7 @@ class SignUpFormViewModel: ObservableObject {
 //        }
 //    }
     
-    init() {        
+    init() {
         isFormValidPublisher.assign(to: &$isValid)
         
         Publishers.CombineLatest(isUsernameLengthValidPublisher, isUsernameAvailablePublisher)
@@ -105,6 +105,9 @@ class SignUpFormViewModel: ObservableObject {
                 case (false, _):
                     return "Username must be at least three characters!"
                 case (_, .failure(let error)):
+                    if case APIError.transportError(_) = error {
+                        return "인터넷 연결을 확인하세요."
+                    }
                     return "Error checking username availability: \(error.localizedDescription)"
                 case (_, .success(false)):
                     return "This username is already taken."
