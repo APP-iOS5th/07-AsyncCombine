@@ -96,8 +96,7 @@ class SignUpFormViewModel: ObservableObject {
 //        }
 //    }
     
-    init() {
-        
+    init() {        
         isFormValidPublisher.assign(to: &$isValid)
         
         Publishers.CombineLatest(isUsernameLengthValidPublisher, isUsernameAvailablePublisher)
