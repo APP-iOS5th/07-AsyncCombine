@@ -44,6 +44,8 @@ class SignUpFormViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }()
     
+    
+    
     init() {
         isFormValidPublisher.assign(to: &$isValid)
         isUsernameLengthValidPublisher.map { $0 ? "" : "Username must be at least three characters!"}

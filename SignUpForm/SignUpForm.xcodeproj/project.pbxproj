@@ -11,6 +11,7 @@
 		377923582C21691300C331EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377923572C21691300C331EA /* ContentView.swift */; };
 		3779235A2C21691500C331EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377923592C21691500C331EA /* Assets.xcassets */; };
 		3779235D2C21691500C331EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3779235C2C21691500C331EA /* Preview Assets.xcassets */; };
+		377923642C225D8900C331EA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377923632C225D8900C331EA /* AuthenticationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		377923572C21691300C331EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		377923592C21691500C331EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3779235C2C21691500C331EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		377923632C225D8900C331EA /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				377923572C21691300C331EA /* ContentView.swift */,
 				377923592C21691500C331EA /* Assets.xcassets */,
 				3779235B2C21691500C331EA /* Preview Content */,
+				377923632C225D8900C331EA /* AuthenticationService.swift */,
 			);
 			path = SignUpForm;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				377923642C225D8900C331EA /* AuthenticationService.swift in Sources */,
 				377923582C21691300C331EA /* ContentView.swift in Sources */,
 				377923562C21691300C331EA /* SignUpFormApp.swift in Sources */,
 			);
