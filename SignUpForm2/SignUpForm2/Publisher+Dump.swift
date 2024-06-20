@@ -12,9 +12,6 @@ extension Publisher {
     func dump() -> AnyPublisher<Self.Output, Self.Failure> {
         handleEvents(receiveOutput: { value in
             Swift.dump(value)
-        }, receiveCompletion: { value in
-            Swift.print(">>")
-            Swift.dump(value)
         })
         .eraseToAnyPublisher()
     }
