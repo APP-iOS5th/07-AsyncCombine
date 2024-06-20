@@ -14,6 +14,7 @@
 		377923802C23AAE300C331EA /* SignUpFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779237F2C23AAE300C331EA /* SignUpFormViewModel.swift */; };
 		377923822C23AAF200C331EA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377923812C23AAF200C331EA /* AuthenticationService.swift */; };
 		377923842C23AB4F00C331EA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377923832C23AB4F00C331EA /* Helper.swift */; };
+		37CC80322C24048500C0D142 /* Publisher+Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC80312C24048500C0D142 /* Publisher+Dump.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3779237F2C23AAE300C331EA /* SignUpFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFormViewModel.swift; sourceTree = "<group>"; };
 		377923812C23AAF200C331EA /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		377923832C23AB4F00C331EA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		37CC80312C24048500C0D142 /* Publisher+Dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Dump.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				377923832C23AB4F00C331EA /* Helper.swift */,
 				377923752C23AAA700C331EA /* Assets.xcassets */,
 				377923772C23AAA700C331EA /* Preview Content */,
+				37CC80312C24048500C0D142 /* Publisher+Dump.swift */,
 			);
 			path = SignUpForm2;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			files = (
 				377923742C23AAA500C331EA /* ContentView.swift in Sources */,
 				377923722C23AAA500C331EA /* SignUpForm2App.swift in Sources */,
+				37CC80322C24048500C0D142 /* Publisher+Dump.swift in Sources */,
 				377923842C23AB4F00C331EA /* Helper.swift in Sources */,
 				377923802C23AAE300C331EA /* SignUpFormViewModel.swift in Sources */,
 				377923822C23AAF200C331EA /* AuthenticationService.swift in Sources */,
