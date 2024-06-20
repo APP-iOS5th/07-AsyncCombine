@@ -15,6 +15,7 @@
 		377923822C23AAF200C331EA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377923812C23AAF200C331EA /* AuthenticationService.swift */; };
 		377923842C23AB4F00C331EA /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377923832C23AB4F00C331EA /* Helper.swift */; };
 		37CC80322C24048500C0D142 /* Publisher+Dump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC80312C24048500C0D142 /* Publisher+Dump.swift */; };
+		37CC80342C240BD100C0D142 /* Publisher+Retry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC80332C240BD100C0D142 /* Publisher+Retry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		377923812C23AAF200C331EA /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		377923832C23AB4F00C331EA /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		37CC80312C24048500C0D142 /* Publisher+Dump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Dump.swift"; sourceTree = "<group>"; };
+		37CC80332C240BD100C0D142 /* Publisher+Retry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Retry.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				377923752C23AAA700C331EA /* Assets.xcassets */,
 				377923772C23AAA700C331EA /* Preview Content */,
 				37CC80312C24048500C0D142 /* Publisher+Dump.swift */,
+				37CC80332C240BD100C0D142 /* Publisher+Retry.swift */,
 			);
 			path = SignUpForm2;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				377923722C23AAA500C331EA /* SignUpForm2App.swift in Sources */,
 				37CC80322C24048500C0D142 /* Publisher+Dump.swift in Sources */,
 				377923842C23AB4F00C331EA /* Helper.swift in Sources */,
+				37CC80342C240BD100C0D142 /* Publisher+Retry.swift in Sources */,
 				377923802C23AAE300C331EA /* SignUpFormViewModel.swift in Sources */,
 				377923822C23AAF200C331EA /* AuthenticationService.swift in Sources */,
 			);
