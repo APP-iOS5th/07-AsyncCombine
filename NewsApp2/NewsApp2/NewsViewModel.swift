@@ -11,6 +11,7 @@ import Combine
 class NewsViewModel: ObservableObject {
     @Published var newsItems: [NewsItem] = []
     @Published var searchQuery = ""
+    @Published var errorMessage: String?
     
     private let newsService = NewsService()
     private var cancellables = Set<AnyCancellable>()
@@ -29,11 +30,22 @@ class NewsViewModel: ObservableObject {
     }()
     
     init() {
+        // 뉴스아이템 배열 바인딩 스트림
         searchNewsPublisher
             .catch { _ in Empty() }
-            .sink { [weak self] response in
-                self?.newsItems = response.items
-            }
+            .map(\.items)
+            .assign(to: \.newsItems, on: self)
             .store(in: &cancellables)
+        
+        // 에러 메시지 출력 스트림
+        searchNewsPublisher
+            .map { _ in nil as String? }
+            .catch { error -> AnyPublisher<String?, Never> in
+                Just(error.localizedDescription).eraseToAnyPublisher()
+            }
+            .print("error")
+            .assign(to: \.errorMessage, on: self)
+            .store(in: &cancellables)
+
     }
 }
