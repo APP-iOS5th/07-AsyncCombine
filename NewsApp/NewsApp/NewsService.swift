@@ -22,8 +22,18 @@ class NewsService {
         self.clientSecret = clientSecret
     }
     
-    func searchNews(query: String) -> AnyPublisher<[NewsItem], Error> {
-        guard let url = URL(string: "\(baseURL)?query=\(query)") else {
+    func searchNews(query: String, page: Int, itemsPerPage: Int) -> AnyPublisher<NewsResponse, Error> {
+        guard var components = URLComponents(string: baseURL) else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        
+        components.queryItems = [
+            URLQueryItem(name: "query", value: query),
+            URLQueryItem(name: "start", value: String((page - 1) * itemsPerPage + 1)),
+            URLQueryItem(name: "display", value: String(itemsPerPage))
+        ]
+        
+        guard let url = components.url else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
         
@@ -34,7 +44,6 @@ class NewsService {
         return URLSession.shared.dataTaskPublisher(for: request)
             .map(\.data)
             .decode(type: NewsResponse.self, decoder: JSONDecoder())
-            .map(\.items)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

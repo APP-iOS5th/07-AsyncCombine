@@ -12,29 +12,40 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                List(viewModel.newsItems) { item in
-                    HStack {
-                        if let imageURL = item.imageURL {
-                            AsyncImage(url: URL(string: imageURL)) { image in
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 90)
-                            } placeholder: {
-                                ProgressView()
+            ScrollView {
+                LazyVStack(spacing: 10) {
+                    ForEach(viewModel.newsItems) { item in
+                        HStack {
+                            if let imageURL = item.imageURL {
+                                AsyncImage(url: URL(string: imageURL)) { image in
+                                    image.resizable()
+                                        .frame(width: 90, height: 60)
+                                        .aspectRatio(contentMode: .fit)
+                                } placeholder: {
+                                    ProgressView()
+                                        .frame(width: 90, height: 60, alignment: .center)
+                                }
                             }
+                            VStack(alignment: .leading) {
+                                Text(item.title)
+                                    .font(.headline)
+                                Text(item.pubDate)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            Spacer()
                         }
-                        VStack(alignment: .leading) {
-                            Text(item.title)
-                                .font(.headline)
-                            Text(item.pubDate)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
+                    }
+                    if viewModel.hasMoreData, !viewModel.isLoading {
+                        ProgressView()
+                            .onAppear {
+                                viewModel.loadMore()
+                            }
                     }
                 }
             }
-            .navigationTitle("뉴스 검색")
+            .listStyle(PlainListStyle())
+            .navigationTitle("뉴스 검색 (\(viewModel.newsItems.count) 건)")
             .searchable(text: $viewModel.searchQuery, prompt: "검색어를 입력하세요")
             .overlay(
                 Group {

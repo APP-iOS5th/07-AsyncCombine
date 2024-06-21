@@ -22,5 +22,6 @@ struct NewsItem: Codable, Identifiable {
 }
 
 struct NewsResponse: Codable {
+    let total: Int
     let items: [NewsItem]
 }
