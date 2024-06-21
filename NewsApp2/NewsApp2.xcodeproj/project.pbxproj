@@ -13,6 +13,7 @@
 		3755CD0F2C2551850089092A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3755CD0E2C2551850089092A /* Preview Assets.xcassets */; };
 		3755CD182C2556BE0089092A /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3755CD172C2556BE0089092A /* NewsItem.swift */; };
 		3755CD1A2C2558F50089092A /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3755CD192C2558F50089092A /* NewsService.swift */; };
+		3755CD1C2C25624D0089092A /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3755CD1B2C25624D0089092A /* NewsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		3755CD162C25527F0089092A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3755CD172C2556BE0089092A /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		3755CD192C2558F50089092A /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		3755CD1B2C25624D0089092A /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3755CD092C2551830089092A /* ContentView.swift */,
 				3755CD172C2556BE0089092A /* NewsItem.swift */,
 				3755CD192C2558F50089092A /* NewsService.swift */,
+				3755CD1B2C25624D0089092A /* NewsViewModel.swift */,
 				3755CD0B2C2551850089092A /* Assets.xcassets */,
 				3755CD0D2C2551850089092A /* Preview Content */,
 				3755CD152C2551EE0089092A /* Config.xcconfig */,
@@ -149,6 +152,7 @@
 			files = (
 				3755CD0A2C2551830089092A /* ContentView.swift in Sources */,
 				3755CD182C2556BE0089092A /* NewsItem.swift in Sources */,
+				3755CD1C2C25624D0089092A /* NewsViewModel.swift in Sources */,
 				3755CD1A2C2558F50089092A /* NewsService.swift in Sources */,
 				3755CD082C2551830089092A /* NewsApp2App.swift in Sources */,
 			);

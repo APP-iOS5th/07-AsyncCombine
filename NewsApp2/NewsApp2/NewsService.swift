@@ -26,7 +26,7 @@ struct NewsService {
         guard var components = URLComponents(string: baseURL) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
-        
+
         components.queryItems = [
             URLQueryItem(name: "query", value: query),
             URLQueryItem(name: "start", value: String((page - 1) * itemsPerPage + 1)),
