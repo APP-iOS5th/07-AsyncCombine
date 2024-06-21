@@ -136,9 +136,15 @@ class NewsViewModel: ObservableObject {
                         print("Error fetching thumbnail for \(item.title): \(error)")
                     }
                 } receiveValue: { [weak self] thumbnailURL in
-                    self?.newsItems[index].imageURL = thumbnailURL
+                    self?.updateThumbnail(for: item.id, with: thumbnailURL)
                 }
                 .store(in: &cancellables)
+        }
+    }
+    
+    private func updateThumbnail(for itemId: UUID, with thumbnailURL: String?) {
+        if let index = newsItems.firstIndex(where: { $0.id == itemId }) {
+            newsItems[index].imageURL = thumbnailURL
         }
     }
     
