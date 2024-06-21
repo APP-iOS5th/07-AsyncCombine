@@ -11,6 +11,7 @@
 		3755CD0A2C2551830089092A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3755CD092C2551830089092A /* ContentView.swift */; };
 		3755CD0C2C2551850089092A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3755CD0B2C2551850089092A /* Assets.xcassets */; };
 		3755CD0F2C2551850089092A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3755CD0E2C2551850089092A /* Preview Assets.xcassets */; };
+		3755CD182C2556BE0089092A /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3755CD172C2556BE0089092A /* NewsItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3755CD0E2C2551850089092A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3755CD152C2551EE0089092A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		3755CD162C25527F0089092A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3755CD172C2556BE0089092A /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				3755CD162C25527F0089092A /* Info.plist */,
 				3755CD072C2551830089092A /* NewsApp2App.swift */,
 				3755CD092C2551830089092A /* ContentView.swift */,
+				3755CD172C2556BE0089092A /* NewsItem.swift */,
 				3755CD0B2C2551850089092A /* Assets.xcassets */,
 				3755CD0D2C2551850089092A /* Preview Content */,
 				3755CD152C2551EE0089092A /* Config.xcconfig */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3755CD0A2C2551830089092A /* ContentView.swift in Sources */,
+				3755CD182C2556BE0089092A /* NewsItem.swift in Sources */,
 				3755CD082C2551830089092A /* NewsApp2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
