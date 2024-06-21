@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3755CCF42C25072D0089092A /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC80512C25039400C0D142 /* NewsService.swift */; };
+		3755CCF52C2507A90089092A /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 37CC80532C2503BD00C0D142 /* Config.xcconfig */; };
 		37CC80422C25031D00C0D142 /* NewsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC80412C25031D00C0D142 /* NewsAppApp.swift */; };
 		37CC80442C25031D00C0D142 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC80432C25031D00C0D142 /* ContentView.swift */; };
 		37CC80462C25031F00C0D142 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CC80452C25031F00C0D142 /* Assets.xcassets */; };
 		37CC80492C25031F00C0D142 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CC80482C25031F00C0D142 /* Preview Assets.xcassets */; };
+		37CC80502C25037900C0D142 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC804F2C25037900C0D142 /* NewsViewModel.swift */; };
+		37CC80552C2504A600C0D142 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC80542C2504A600C0D142 /* NewsItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3755CCF62C2513570089092A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		37CC803E2C25031D00C0D142 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC80412C25031D00C0D142 /* NewsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppApp.swift; sourceTree = "<group>"; };
 		37CC80432C25031D00C0D142 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		37CC80452C25031F00C0D142 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37CC80482C25031F00C0D142 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		37CC804F2C25037900C0D142 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		37CC80512C25039400C0D142 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		37CC80532C2503BD00C0D142 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		37CC80542C2504A600C0D142 /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +60,13 @@
 		37CC80402C25031D00C0D142 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				3755CCF62C2513570089092A /* Info.plist */,
 				37CC80412C25031D00C0D142 /* NewsAppApp.swift */,
 				37CC80432C25031D00C0D142 /* ContentView.swift */,
+				37CC80542C2504A600C0D142 /* NewsItem.swift */,
+				37CC80512C25039400C0D142 /* NewsService.swift */,
+				37CC804F2C25037900C0D142 /* NewsViewModel.swift */,
+				37CC80532C2503BD00C0D142 /* Config.xcconfig */,
 				37CC80452C25031F00C0D142 /* Assets.xcassets */,
 				37CC80472C25031F00C0D142 /* Preview Content */,
 			);
@@ -126,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37CC80492C25031F00C0D142 /* Preview Assets.xcassets in Resources */,
+				3755CCF52C2507A90089092A /* Config.xcconfig in Resources */,
 				37CC80462C25031F00C0D142 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3755CCF42C25072D0089092A /* NewsService.swift in Sources */,
 				37CC80442C25031D00C0D142 /* ContentView.swift in Sources */,
+				37CC80552C2504A600C0D142 /* NewsItem.swift in Sources */,
+				37CC80502C25037900C0D142 /* NewsViewModel.swift in Sources */,
 				37CC80422C25031D00C0D142 /* NewsAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +165,7 @@
 /* Begin XCBuildConfiguration section */
 		37CC804A2C25031F00C0D142 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37CC80532C2503BD00C0D142 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -210,6 +229,7 @@
 		};
 		37CC804B2C25031F00C0D142 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37CC80532C2503BD00C0D142 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -274,6 +294,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NewsApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -302,6 +323,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NewsApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
