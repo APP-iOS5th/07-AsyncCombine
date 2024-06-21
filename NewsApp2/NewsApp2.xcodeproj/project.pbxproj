@@ -19,6 +19,8 @@
 		3755CD092C2551830089092A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3755CD0B2C2551850089092A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3755CD0E2C2551850089092A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3755CD152C2551EE0089092A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		3755CD162C25527F0089092A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +53,12 @@
 		3755CD062C2551830089092A /* NewsApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				3755CD162C25527F0089092A /* Info.plist */,
 				3755CD072C2551830089092A /* NewsApp2App.swift */,
 				3755CD092C2551830089092A /* ContentView.swift */,
 				3755CD0B2C2551850089092A /* Assets.xcassets */,
 				3755CD0D2C2551850089092A /* Preview Content */,
+				3755CD152C2551EE0089092A /* Config.xcconfig */,
 			);
 			path = NewsApp2;
 			sourceTree = "<group>";
@@ -266,6 +270,7 @@
 		};
 		3755CD132C2551850089092A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3755CD152C2551EE0089092A /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -274,6 +279,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NewsApp2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsApp2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -284,7 +290,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.NewsApp2;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -294,6 +300,7 @@
 		};
 		3755CD142C2551850089092A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3755CD152C2551EE0089092A /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +309,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NewsApp2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NewsApp2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -312,7 +320,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.NewsApp2;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.NewsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
