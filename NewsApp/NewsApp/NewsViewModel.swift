@@ -48,7 +48,10 @@ class NewsViewModel: ObservableObject {
         searchNewsPublisher
             .receive(on: DispatchQueue.main)
             .catch { _ in Empty() }
-            .assign(to: \.newsItems, on: self)
+            .sink { [weak self] newsItems in
+                self?.newsItems = newsItems
+                self?.fetchThumbnails()
+            }
             .store(in: &cancellables)
         
         // 에러 메시지 출력 스트림
@@ -60,5 +63,50 @@ class NewsViewModel: ObservableObject {
             }
             .assign(to: \.errorMessage, on: self)
             .store(in: &cancellables)
+    }
+    
+    func fetchThumbnails() {
+        for (index, item) in newsItems.enumerated() {
+            guard let url = URL(string: item.originallink) else { continue }
+            
+            URLSession.shared.dataTaskPublisher(for: url)
+                .map(\.data)
+                .map { String(data: $0, encoding: .utf8) ?? "" }
+                .map { self.extractThumbnailURL(from: $0) }
+                .receive(on: DispatchQueue.main)
+                .sink { completion in
+                    if case .failure(let error) = completion {
+                        print("Error fetching thumbnail for \(item.title): \(error)")
+                    }
+                } receiveValue: { [weak self] thumbnailURL in
+                    self?.newsItems[index].imageURL = thumbnailURL
+                }
+                .store(in: &cancellables)
+        }
+    }
+    
+    func extractThumbnailURL(from html: String) -> String? {
+        let ogImagePattern = "<meta\\s+property=[\"']og:image[\"']\\s+content=[\"'](.*?)[\"']\\s*/>"
+        let twitterImagePattern = "<meta\\s+name=[\"']twitter:image[\"']\\s+content=[\"'](.*?)[\"']\\s*/>"
+        
+        if let ogImageURL = html.range(of: ogImagePattern, options: .regularExpression)
+            .flatMap({ result in
+                let start = html.index(result.lowerBound, offsetBy: 35)
+                let end = html.index(result.upperBound, offsetBy: -4)
+                return String(html[start..<end])
+            }) {
+            return ogImageURL
+        }
+        
+        if let twitterImageURL = html.range(of: twitterImagePattern, options: .regularExpression)
+            .flatMap({ result in
+                let start = html.index(result.lowerBound, offsetBy: 38)
+                let end = html.index(result.upperBound, offsetBy: -4)
+                return String(html[start..<end])
+            }) {
+            return twitterImageURL
+        }
+        
+        return nil
     }
 }
