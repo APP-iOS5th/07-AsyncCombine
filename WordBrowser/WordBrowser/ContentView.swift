@@ -31,6 +31,7 @@ struct SectionView: View {
 
 struct ContentView: View {
     @StateObject var viewModel = LibraryViewModel()
+    @State var isAddNewWordDialogPresented = false
     
     var body: some View {
         List {
@@ -43,9 +44,14 @@ struct ContentView: View {
         .navigationTitle("Libary")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button(action: {}) {
+                Button(action: {isAddNewWordDialogPresented.toggle()}) {
                     Image(systemName: "plus")
                 }
+            }
+        }
+        .sheet(isPresented: $isAddNewWordDialogPresented) {
+            NavigationStack {
+                AddWordView()
             }
         }
     }
