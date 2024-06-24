@@ -118,7 +118,7 @@ class NewsViewModel: ObservableObject {
     }
     
     func fetchThumbnails(for items: [NewsItem] = []) {
-        for (index, item) in newsItems.enumerated() {
+        for (_, item) in newsItems.enumerated() {
             guard var urlComponents = URLComponents(string: item.originallink) else { continue }
             
             // Force HTTPS
