@@ -11,6 +11,7 @@
 		37CF80A92C29294200DB7627 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF80A82C29294200DB7627 /* ContentView.swift */; };
 		37CF80AB2C29294300DB7627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CF80AA2C29294300DB7627 /* Assets.xcassets */; };
 		37CF80AE2C29294300DB7627 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CF80AD2C29294300DB7627 /* Preview Assets.xcassets */; };
+		37CF80B72C292E1700DB7627 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF80B62C292E1700DB7627 /* LibraryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		37CF80AD2C29294300DB7627 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		37CF80B42C2929BD00DB7627 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		37CF80B52C292A7300DB7627 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		37CF80B62C292E1700DB7627 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				37CF80B52C292A7300DB7627 /* Info.plist */,
 				37CF80A62C29294200DB7627 /* WordBrowserApp.swift */,
 				37CF80A82C29294200DB7627 /* ContentView.swift */,
+				37CF80B62C292E1700DB7627 /* LibraryViewModel.swift */,
 				37CF80AA2C29294300DB7627 /* Assets.xcassets */,
 				37CF80AC2C29294300DB7627 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37CF80A92C29294200DB7627 /* ContentView.swift in Sources */,
+				37CF80B72C292E1700DB7627 /* LibraryViewModel.swift in Sources */,
 				37CF80A72C29294200DB7627 /* WordBrowserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +276,6 @@
 		};
 		37CF80B22C29294300DB7627 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37CF80B42C2929BD00DB7627 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
