@@ -35,17 +35,26 @@ func slice(_ ingredients: [String],
 func makeSandwich(bread: String, ingredients: [String], condiments: [String],
                   completion: (String) -> Void) {
   sandwichMakerSays("Preparing your sandwich...")
-
-    toastBread(bread, completion: { toasted in
-        slice(ingredients) { sliced in
-            sandwichMakerSays("Spreading \(condiments.joined(separator: ", and ")) om \(toasted)")
-            sandwichMakerSays("Layering \(sliced.joined(separator: ", "))")
-            sandwichMakerSays("Putting lettuce on top")
-            sandwichMakerSays("Putting another slice of bread on top")
-            
-            completion("\(ingredients.joined(separator: ", ")), \(condiments.joined(separator: ", ")) on \(toasted)")
-        }
-    })
+  
+//  toastBread(bread, completion: { toasted in
+//    print("\(bread) is now \(toasted)")
+//  })
+//  print("This code will be executed before the bread is toasted")
+  
+//  toastBread(bread) { toasted in
+//    print("\(bread) is now \(toasted)")
+//  }
+  
+  toastBread(bread) { toasted in
+    slice(ingredients) { sliced in
+      sandwichMakerSays("Spreading \(condiments.joined(separator: ", and ")) om \(toasted)")
+      sandwichMakerSays("Layering \(sliced.joined(separator: ", "))")
+      sandwichMakerSays("Putting lettuce on top")
+      sandwichMakerSays("Putting another slice of bread on top")
+      
+      completion("\(ingredients.joined(separator: ", ")), \(condiments.joined(separator: ", ")) on \(toasted)")
+    }
+  }
 }
 
 sandwichMakerSays("Hello to Cafe Complete, where we handle your order with care.")
