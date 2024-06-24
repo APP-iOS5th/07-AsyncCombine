@@ -29,7 +29,7 @@ func makeSandwich(bread: String, ingredients: [String], condiments: [String]) ->
     sandwichMakerSays("Preparing your sandwich...")
     let toasted = toastBread(bread)
     let sliced = slice(ingredients)
-    sandwichMakerSays("Spreading \(condiments.joined(separator: ", and"))")
+    sandwichMakerSays("Spreading \(condiments.joined(separator: ", and "))")
     sandwichMakerSays("Layering \(sliced.joined(separator: ", "))")
     sandwichMakerSays("Putting lettuce on top")
     sandwichMakerSays("Putting another slice of bread on top")
