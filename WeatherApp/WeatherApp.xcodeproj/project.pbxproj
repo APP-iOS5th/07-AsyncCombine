@@ -11,6 +11,7 @@
 		37CF80CF2C2A5EEB00DB7627 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF80CE2C2A5EEB00DB7627 /* ContentView.swift */; };
 		37CF80D12C2A5EED00DB7627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CF80D02C2A5EED00DB7627 /* Assets.xcassets */; };
 		37CF80D42C2A5EED00DB7627 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CF80D32C2A5EED00DB7627 /* Preview Assets.xcassets */; };
+		37CF80DC2C2A878800DB7627 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CF80DB2C2A878800DB7627 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		37CF80D02C2A5EED00DB7627 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37CF80D32C2A5EED00DB7627 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		37CF80DA2C2A5F3600DB7627 /* WeatherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherApp.entitlements; sourceTree = "<group>"; };
+		37CF80DB2C2A878800DB7627 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 				37CF80DA2C2A5F3600DB7627 /* WeatherApp.entitlements */,
 				37CF80CC2C2A5EEB00DB7627 /* WeatherAppApp.swift */,
 				37CF80CE2C2A5EEB00DB7627 /* ContentView.swift */,
+				37CF80DB2C2A878800DB7627 /* WeatherViewModel.swift */,
 				37CF80D02C2A5EED00DB7627 /* Assets.xcassets */,
 				37CF80D22C2A5EED00DB7627 /* Preview Content */,
 			);
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37CF80CF2C2A5EEB00DB7627 /* ContentView.swift in Sources */,
+				37CF80DC2C2A878800DB7627 /* WeatherViewModel.swift in Sources */,
 				37CF80CD2C2A5EEB00DB7627 /* WeatherAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +282,7 @@
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,6 +313,7 @@
 				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = .;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
