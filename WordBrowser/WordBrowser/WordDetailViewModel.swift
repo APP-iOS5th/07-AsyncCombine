@@ -31,6 +31,7 @@ class WordDetailViewModel: ObservableObject {
     @MainActor
     func executeQuery(for searchTerm: String) async {
         isSearching = true
+        try? await Task.sleep(for: .seconds(3))
         result = await search(for: searchTerm)
         isSearching = false
     }

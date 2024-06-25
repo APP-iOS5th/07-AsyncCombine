@@ -19,12 +19,12 @@ class LibraryViewModel: ObservableObject {
         
     init() {
         Publishers.CombineLatest($searchText, $tips).map { query, items in
-            items.filter { item in query.isEmpty ? true : item.contains(query) }
+            items.filter { item in query.isEmpty ? true : item.localizedCaseInsensitiveContains(query) }
         }
         .assign(to: &$filteredTips)
         
         Publishers.CombineLatest($searchText, $favorites).map { query, items in
-            items.filter { item in query.isEmpty ? true : item.contains(query) }
+            items.filter { item in query.isEmpty ? true : item.localizedCaseInsensitiveContains(query) }
         }
         .assign(to: &$filteredFavorites)
     }
