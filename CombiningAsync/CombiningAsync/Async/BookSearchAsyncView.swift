@@ -15,8 +15,7 @@ fileprivate class ViewModel: ObservableObject {
   
   private var searchTask: Task<Void, Never>?
   
-  @MainActor
-  func executeQuery() async {
+  func executeQuery() {
     searchTask?.cancel()
     let currentSearchTerm = searchTerm.trimmingCharacters(in: .whitespaces)
     if currentSearchTerm.isEmpty {
@@ -24,7 +23,7 @@ fileprivate class ViewModel: ObservableObject {
       isSearching = false
     }
     else {
-      searchTask = Task {
+      searchTask = Task { @MainActor in
         isSearching = true
         result = await searchBooks(matching: searchTerm)
         if !Task.isCancelled {
@@ -79,11 +78,11 @@ struct BookSearchAsyncView: View {
     .searchable(text: $viewModel.searchTerm)
     // uncomment the following line to kick off the search 0.8 seconds after the user stopped typing
 //    .onReceive(viewModel.$searchTerm.debounce(for: 0.8, scheduler: RunLoop.main)) { searchTerm in
-    .onReceive(viewModel.$searchTerm) { searchTerm in
-      Task {
-        await viewModel.executeQuery()
-      }
-    }
+    .onReceive(viewModel.$searchTerm, perform: { searchTerm in
+        Task {
+            viewModel.executeQuery()
+        }
+    })
   }
 }
 

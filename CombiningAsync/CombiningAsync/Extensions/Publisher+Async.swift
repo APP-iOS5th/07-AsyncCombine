@@ -10,7 +10,6 @@ import Combine
 import SwiftUI
 
 extension Publisher {
-  
   /// Executes an asyncronous call and returns its result to the downstream subscriber.
   ///
   /// - Parameter transform: A closure that takes an element as a parameter and returns a publisher that produces elements of that type.
