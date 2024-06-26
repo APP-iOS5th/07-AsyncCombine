@@ -9,22 +9,37 @@ import SwiftUI
 
 //
 struct HeaderView: View {
+    let headerOffset: CGFloat
+    
     var body: some View {
         VStack {
             Text("Seongnam-si")
                 .font(.system(size: 40))
-            Text("21°")
-                .font(.system(size: 110, weight: .thin))
+            ZStack(alignment: .top) {
+                HStack {
+                    Text("19°")
+                    Text("|")
+                    Text("흐림")
+                }
+                .font(.system(size: 23))
+                .opacity(headerOffset < 165 ? 1 : 0)
+                Text("21°")
+                    .font(.system(size: 110, weight: .thin))
+                    .opacity(headerOffset < 225 ? (headerOffset - 165) / 60.0 : 1)
+            }
             Text("Partly Cloudy")
                 .font(.system(size: 25))
+                .opacity(headerOffset < 255 ? (headerOffset - 225) / 30.0 : 1)
             HStack {
                 Text("H:29°")
                 Text("L:15°")
             }
             .font(.system(size: 23))
+            .opacity(headerOffset < 275 ? (headerOffset - 255) / 20.0 : 1)
         }
         .foregroundStyle(.white)
         .frame(maxWidth: .infinity)
+        .frame(height: 260)
     }
 }
 
@@ -58,7 +73,7 @@ struct CardView<Content: View>: View {
                     }
                     .onChange(of: proxy.frame(in: .global).minY) { old, newValue in
                         self.scrollOffset = newValue
-                        print("\(title) changed by: \(newValue)")
+//                        print("\(title) changed by: \(newValue)")
                     }
             }
             .frame(height: 0)
@@ -71,19 +86,19 @@ struct CardView<Content: View>: View {
         .padding()
         .background(
             .ultraThinMaterial,
-            in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+            in: RoundedRectangle(cornerRadius: 10, style: .continuous)
         )
-        .opacity(scrollOffset < 250 ? 0 : min(1,((scrollOffset - 250) / 250.0)))
-        .shadow(radius: 10)
+//        .opacity(scrollOffset < 250 ? 0 : min(1,((scrollOffset - 250) / 250.0)))
     }
 }
 
 struct ContentView: View {
     @StateObject var viewModel = WeatherViewModel()
-    
+    @State var headerOffset: CGFloat = 0
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
+            
             GeometryReader { proxy in
                 Image("sky")
                     .resizable()
@@ -96,6 +111,18 @@ struct ContentView: View {
             ScrollView {
                 LazyVStack(pinnedViews: [.sectionHeaders]) {
                     Section {
+                        GeometryReader { proxy in
+                            Color.clear
+                                .preference(key: ScrollOffsetKey.self, value: proxy.frame(in: .global).minY)
+                                .onAppear {
+                                    self.headerOffset = proxy.frame(in: .global).minY
+                                }
+                                .onChange(of: proxy.frame(in: .global).minY) { old, newValue in
+                                    self.headerOffset = newValue
+                                    print("headerOffset: \(newValue)")
+                                }
+                        }
+                        .frame(height: 0)
                         CardView(title: "TEST") {
                             Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
                             Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
@@ -134,7 +161,7 @@ struct ContentView: View {
                         }
                         
                         VStack(alignment: .leading) {
-                            ForEach(0..<100) { index in
+                            ForEach(0..<20) { index in
                                 VStack {
                                     HStack {
                                         Text("Mon")
@@ -154,7 +181,7 @@ struct ContentView: View {
                         }
                         
                     } header: {
-                        HeaderView()
+                        HeaderView(headerOffset: headerOffset)
                             .padding(.bottom, 20)
                     }
                 }
