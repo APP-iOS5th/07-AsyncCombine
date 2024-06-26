@@ -84,6 +84,15 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
+            GeometryReader { proxy in
+                Image("sky")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clipped()
+                    .edgesIgnoringSafeArea(.all)
+            }
+            
             ScrollView {
                 LazyVStack(pinnedViews: [.sectionHeaders]) {
                     Section {
