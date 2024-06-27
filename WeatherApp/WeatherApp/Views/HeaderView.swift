@@ -57,5 +57,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView()
+    HeaderView(headerOffset: 0)
 }

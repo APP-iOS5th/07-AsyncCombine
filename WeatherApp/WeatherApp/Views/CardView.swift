@@ -75,5 +75,5 @@ struct CardView<Content: View>: View {
 }
 
 #Preview {
-    CardView()
+    CardView(content: {})
 }

@@ -14,6 +14,7 @@ struct ContentView: View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             
+            // GeometryReader: 디바이스 크기를 가져와서 화면에 맞춰줌
             GeometryReader { proxy in
                 Image("sky")
                     .resizable()
@@ -36,13 +37,10 @@ struct ContentView: View {
                                 }
                         }
                         .frame(height: 0)
-                        CardView {
-                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
-                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
-                            
-                        }
                         
                         CardView {
+                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
+                            Spacer()
                             ScrollView(.horizontal) {
                                 LazyHStack {
                                     ForEach(0..<10) { index in
@@ -53,14 +51,7 @@ struct ContentView: View {
                             .frame(height: 120)
                         }
                         
-                                                
                         CardView(title: "10-DAY FORCAST", systemImage: "calendar") {
-                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
-                            Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
-                            
-                        }
-                        
-                        CardView {
                             VStack(alignment: .leading) {
                                 ForEach(0..<10) { index in
                                     DailyForecastView()
@@ -76,6 +67,15 @@ struct ContentView: View {
                 .foregroundStyle(.white)
                 .padding()
             }
+            .padding(.bottom, 40)
+            
+            VStack(spacing: 0) {
+                Spacer()
+                Divider()
+                BottomNavigationView()
+            }
+            .edgesIgnoringSafeArea(.all)
+
         }
     }
 }
@@ -83,3 +83,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
