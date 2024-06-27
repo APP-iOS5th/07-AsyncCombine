@@ -11,6 +11,17 @@ import SwiftUI
 struct HeaderView: View {
     let headerOffset: CGFloat
     
+    private let totalHeight: CGFloat = 260
+    
+    // 각 요소의 상대적 위치를 계산하는 computed properties
+    private var smallTextAppear: CGFloat { totalHeight - 95 }  // 260 - 95 = 165
+    private var largeTextStart: CGFloat { totalHeight - 95 }   // 260 - 95 = 165
+    private var largeTextEnd: CGFloat { totalHeight - 35 }     // 260 - 35 = 225
+    private var partlyCloudyStart: CGFloat { totalHeight - 35 } // 260 - 35 = 225
+    private var partlyCloudyEnd: CGFloat { totalHeight - 5 }    // 260 - 5 = 255
+    private var tempRangeStart: CGFloat { totalHeight - 5 }     // 260 - 5 = 255
+    private var tempRangeEnd: CGFloat { totalHeight + 15 }      // 260 + 15 = 275
+
     var body: some View {
         VStack {
             Text("Seongnam-si")
@@ -22,24 +33,27 @@ struct HeaderView: View {
                     Text("흐림")
                 }
                 .font(.system(size: 23))
-                .opacity(headerOffset < 165 ? 1 : 0)
+                .opacity(headerOffset < smallTextAppear ? 1 : 0)
                 Text("21°")
                     .font(.system(size: 110, weight: .thin))
-                    .opacity(headerOffset < 225 ? (headerOffset - 165) / 60.0 : 1)
+                    .opacity(headerOffset < largeTextEnd ?
+                             (headerOffset - largeTextStart) / (largeTextEnd - largeTextStart) : 1)
             }
             Text("Partly Cloudy")
                 .font(.system(size: 25))
-                .opacity(headerOffset < 255 ? (headerOffset - 225) / 30.0 : 1)
+                .opacity(headerOffset < partlyCloudyEnd ?
+                         (headerOffset - partlyCloudyStart) / (partlyCloudyEnd - partlyCloudyStart) : 1)
             HStack {
                 Text("H:29°")
                 Text("L:15°")
             }
             .font(.system(size: 23))
-            .opacity(headerOffset < 275 ? (headerOffset - 255) / 20.0 : 1)
+            .opacity(headerOffset < tempRangeEnd ?
+                     (headerOffset - tempRangeStart) / (tempRangeEnd - tempRangeStart) : 1)
         }
         .foregroundStyle(.white)
         .frame(maxWidth: .infinity)
-        .frame(height: 260)
+        .frame(height: totalHeight)
     }
 }
 
@@ -52,43 +66,51 @@ struct ScrollOffsetKey: PreferenceKey {
 }
 
 struct CardView<Content: View>: View {
-    var title: String
-    
+    let title: String
     let content: Content
     
+    @State var minY: CGFloat = 0
+    @State var maxY: CGFloat = 0
+    @State var height: CGFloat = 0
+    
+    private let maxOffset: CGFloat = 150 // 스크롤시 도달하는 최대 높이 (상단 오프셋)
+
     init(title: String, @ViewBuilder content: () -> Content) {
         self.title = title
         self.content = content()
     }
-    
-    @State var scrollOffset: CGFloat = 0
-    
+        
     var body: some View {
         VStack(alignment: .leading) {
-            GeometryReader { proxy in
-                Color.clear
-                    .preference(key: ScrollOffsetKey.self, value: proxy.frame(in: .global).minY)
-                    .onAppear {
-                        self.scrollOffset = proxy.frame(in: .global).minY
-                    }
-                    .onChange(of: proxy.frame(in: .global).minY) { old, newValue in
-                        self.scrollOffset = newValue
-//                        print("\(title) changed by: \(newValue)")
-                    }
+            VStack {
+                content
             }
-            .frame(height: 0)
-            Text(title)
-                .font(.title)
-                .bold()
-            content
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            .background(
+                .ultraThinMaterial,
+                in: RoundedRectangle(cornerRadius: 10, style: .continuous)
+            )
+            .offset(y: min(maxOffset, max(0, -minY + maxOffset)))
+            .opacity(opacity)
+            .background(
+                GeometryReader { proxy -> Color in
+                    let min = proxy.frame(in: .global).minY
+                    let max = proxy.frame(in: .global).maxY
+                    
+                    DispatchQueue.main.async {
+                        self.minY = min
+                        self.maxY = max
+                        self.height = proxy.size.height
+                    }
+                    return Color.clear
+                }
+            )
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-        .background(
-            .ultraThinMaterial,
-            in: RoundedRectangle(cornerRadius: 10, style: .continuous)
-        )
-//        .opacity(scrollOffset < 250 ? 0 : min(1,((scrollOffset - 250) / 250.0)))
+    }
+
+    private var opacity: CGFloat {
+        max(0, min(1, (maxY - maxOffset) / height))
     }
 }
 
@@ -113,13 +135,11 @@ struct ContentView: View {
                     Section {
                         GeometryReader { proxy in
                             Color.clear
-                                .preference(key: ScrollOffsetKey.self, value: proxy.frame(in: .global).minY)
                                 .onAppear {
                                     self.headerOffset = proxy.frame(in: .global).minY
                                 }
                                 .onChange(of: proxy.frame(in: .global).minY) { old, newValue in
                                     self.headerOffset = newValue
-                                    print("headerOffset: \(newValue)")
                                 }
                         }
                         .frame(height: 0)
