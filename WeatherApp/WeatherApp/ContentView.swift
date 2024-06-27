@@ -10,8 +10,6 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            Color.black.edgesIgnoringSafeArea(.all)
-            
             // GeometryReader: 디바이스 크기를 가져와서 화면에 맞춰줌
             GeometryReader { proxy in
                 Image("sky")

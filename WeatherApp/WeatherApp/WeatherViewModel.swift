@@ -9,23 +9,11 @@ import Foundation
 import CoreLocation
 import WeatherKit
 
-class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let manager = CLLocationManager()
+class WeatherViewModel: ObservableObject {
     private let weatherService = WeatherService.shared
     
     @Published var location: CLLocation?
     @Published var error: Error?
-    
-    override init() {
-        super.init()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-    }
-    
-    func requestLocation() {
-        manager.requestLocation()
-    }
     
     func fetchWeather(for location: CLLocation) async {
         guard let location = self.location else {
@@ -38,15 +26,5 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         } catch {
             self.error = error
         }
-    }
-    
-    // MARK: CLLocationManagerDelegate
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first
-        print("location: \(location?.description ?? "-")")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        self.error = error
     }
 }
