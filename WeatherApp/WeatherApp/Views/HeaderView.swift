@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HeaderView: View {
+    @EnvironmentObject var viewModel: WeatherViewModel
+    
     let locationName: String
     let headerOffset: CGFloat
     
@@ -28,24 +31,26 @@ struct HeaderView: View {
                 .font(.system(size: 40))
             ZStack(alignment: .top) {
                 HStack {
-                    Text("19°")
+                    Text("\(Int(viewModel.currentWeather?.temperature.value ?? 0))°")
                     Text("|")
-                    Text("흐림")
+                    Text(viewModel.currentWeather?.condition.description ?? "")
                 }
                 .font(.system(size: 23))
                 .opacity(headerOffset < smallTextAppear ? 1 : 0)
-                Text("21°")
+                Text("\(Int(viewModel.currentWeather?.temperature.value ?? 0))°")
                     .font(.system(size: 110, weight: .thin))
                     .opacity(headerOffset < largeTextEnd ?
                              (headerOffset - largeTextStart) / (largeTextEnd - largeTextStart) : 1)
             }
-            Text("Partly Cloudy")
+            Text(viewModel.currentWeather?.condition.description ?? "")
                 .font(.system(size: 25))
                 .opacity(headerOffset < partlyCloudyEnd ?
                          (headerOffset - partlyCloudyStart) / (partlyCloudyEnd - partlyCloudyStart) : 1)
             HStack {
-                Text("H:29°")
-                Text("L:15°")
+                if !viewModel.dailyForecast.isEmpty  {
+                    Text("H:\(Int(viewModel.dailyForecast[0].highTemperature.value))°")
+                    Text("L:\(Int(viewModel.dailyForecast[0].lowTemperature.value))°")
+                }
             }
             .font(.system(size: 23))
             .opacity(headerOffset < tempRangeEnd ?
@@ -55,8 +60,4 @@ struct HeaderView: View {
         .frame(maxWidth: .infinity)
         .frame(height: totalHeight)
     }
-}
-
-#Preview {
-    HeaderView(locationName: "", headerOffset: 0)
 }

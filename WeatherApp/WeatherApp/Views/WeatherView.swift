@@ -69,6 +69,7 @@ struct WeatherView: View {
             .padding()
         }
         .padding(.bottom, 40)
+        .environmentObject(viewModel)
         .task {
             await viewModel.fetchWeather()
             locationManager.resolveLocationName(with: location) { name in
