@@ -44,8 +44,8 @@ struct WeatherView: View {
                         Spacer()
                         ScrollView(.horizontal) {
                             LazyHStack {
-                                ForEach(0..<10) { index in
-                                    HourlyForecastView()
+                                ForEach(viewModel.hourlyForecast, id: \.date) { forecast in
+                                    HourlyForecastView(forecast: forecast)
                                 }
                             }
                         }

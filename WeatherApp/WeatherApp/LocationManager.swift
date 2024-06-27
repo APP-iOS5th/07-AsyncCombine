@@ -56,7 +56,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     // MARK: CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         currentLocation = locations.first
-        print("location: \(currentLocation?.description ?? "-")")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {

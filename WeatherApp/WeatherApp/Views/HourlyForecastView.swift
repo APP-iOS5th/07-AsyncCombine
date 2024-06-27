@@ -6,21 +6,27 @@
 //
 
 import SwiftUI
+import WeatherKit
 
 struct HourlyForecastView: View {
+    let forecast: HourWeather
+    
     var body: some View {
         VStack {
-            Text("10PM")
+            Text(formatHour(forecast.date))
             Spacer()
-            Image(systemName: "cloud.fill")
+            Image(systemName: forecast.symbolName)
                 .font(.largeTitle)
             Spacer()
-            Text("21°")
+            Text("\(Int(forecast.temperature.value))°")
                 .font(.system(size: 21, weight: .semibold))
         }
     }
-}
+    
+    func formatHour(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "ha"
+        return formatter.string(from: date)
+    }
 
-#Preview {
-    HourlyForecastView()
 }
