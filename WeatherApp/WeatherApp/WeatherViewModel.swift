@@ -14,6 +14,9 @@ class WeatherViewModel: ObservableObject {
     
     let location: CLLocation
     
+    @Published var currentWeather: CurrentWeather?
+    @Published var hourlyForecast: [HourWeather] = []
+    @Published var dailyForecast: [DayWeather] = []
     @Published var error: Error?
     
     init(location: CLLocation) {
@@ -23,8 +26,12 @@ class WeatherViewModel: ObservableObject {
     
     func fetchWeather() async {
         do {
-            let forcast = try await weatherService.weather(for: location, including: .current)
-            dump(forcast)
+            let forecast = try await weatherService.weather(for: location)
+            DispatchQueue.main.async {
+                self.currentWeather = forecast.currentWeather
+                self.hourlyForecast = Array(forecast.hourlyForecast.prefix(24))
+                self.dailyForecast = Array(forecast.dailyForecast.prefix(10))
+            }
         } catch {
             self.error = error
         }

@@ -79,5 +79,5 @@ struct WeatherView: View {
 }
 
 #Preview {
-    WeatherView(location: CLLocation(latitude: 0, longitude: 0))
+    WeatherView(location: CLLocation(latitude: 37.56661, longitude: 126.978388))
 }

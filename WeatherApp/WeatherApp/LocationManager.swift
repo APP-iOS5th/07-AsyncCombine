@@ -43,7 +43,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
                 name += locality
             }
             
-            if let adminRegion = place.administrativeArea {
+            if let adminRegion = place.administrativeArea,
+               adminRegion.count < 3 {
                 name += ", \(adminRegion)"
             }
             
