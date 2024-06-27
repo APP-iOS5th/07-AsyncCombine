@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
+    let locationName: String
     let headerOffset: CGFloat
     
     private let totalHeight: CGFloat = 260
@@ -23,7 +24,7 @@ struct HeaderView: View {
 
     var body: some View {
         VStack {
-            Text("Seongnam-si")
+            Text(locationName)
                 .font(.system(size: 40))
             ZStack(alignment: .top) {
                 HStack {
@@ -57,5 +58,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    HeaderView(headerOffset: 0)
+    HeaderView(locationName: "", headerOffset: 0)
 }

@@ -33,6 +33,7 @@ struct ContentView: View {
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
+            .environmentObject(locationManager)
             VStack(spacing: 0) {
                 Spacer()
                 Divider()

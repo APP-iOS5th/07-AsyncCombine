@@ -9,10 +9,14 @@ import SwiftUI
 import CoreLocation
 
 struct WeatherView: View {
+    @EnvironmentObject var locationManager: LocationManager
+    
     let location: CLLocation
     
-    @StateObject var viewModel: WeatherViewModel
+    @State var locationName: String = ""
     
+    @StateObject var viewModel: WeatherViewModel
+        
     init(location: CLLocation) {
         self.location = location
         _viewModel = StateObject(wrappedValue: WeatherViewModel(location: location))
@@ -57,7 +61,7 @@ struct WeatherView: View {
                     }
                     
                 } header: {
-                    HeaderView(headerOffset: headerOffset)
+                    HeaderView(locationName: locationName, headerOffset: headerOffset)
                         .padding(.bottom, 20)
                 }
             }
@@ -65,6 +69,12 @@ struct WeatherView: View {
             .padding()
         }
         .padding(.bottom, 40)
+        .task {
+            await viewModel.fetchWeather()
+            locationManager.resolveLocationName(with: location) { name in
+                locationName = name ?? ""
+            }
+        }
     }
 }
 

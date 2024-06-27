@@ -14,7 +14,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var error: Error?
     @Published var currentLocation: CLLocation?
     @Published var saveLocations: [CLLocation] = [
-        CLLocation(latitude: 37.56661, longitude: 126.978388)
+        CLLocation(latitude: 37.56661, longitude: 126.978388),
     ]
     
     override init() {
@@ -27,6 +27,30 @@ class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     func requestLocation() {
         manager.requestLocation()
     }
+    
+    public func resolveLocationName(with location: CLLocation,
+                                    completion: @escaping ((String?) -> Void)) {
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            guard let place = placemarks?.first, error == nil else {
+                completion(nil)
+                return
+            }
+            
+            var name = ""
+            
+            if let locality = place.locality {
+                name += locality
+            }
+            
+            if let adminRegion = place.administrativeArea {
+                name += ", \(adminRegion)"
+            }
+            
+            completion(name)
+        }
+    }
+
 
     // MARK: CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
