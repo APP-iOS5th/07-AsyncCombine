@@ -25,6 +25,11 @@ struct ContentView: View {
             TabView(selection: $selectedIndex) {
                 if let location = locationManager.currentLocation {
                     WeatherView(location: location)
+                        .tag(0)
+                }
+                ForEach(Array(locationManager.saveLocations.enumerated()), id: \.offset) { index, location in
+                    WeatherView(location: location)
+                        .tag(index+1)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))

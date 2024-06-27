@@ -29,7 +29,6 @@ struct BottomNavigationView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 8, height: 8)
-                        .foregroundStyle(.white)
                         .foregroundStyle(selectedIndex == index ? Color.white : Color(UIColor.lightGray))
                 }
             }
