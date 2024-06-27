@@ -40,8 +40,6 @@ struct WeatherView: View {
                     .frame(height: 0)
                     
                     CardView {
-                        Text("Cloudy conditions from 1AM-9AM, with showers expected at 9AM.")
-                        Spacer()
                         ScrollView(.horizontal) {
                             LazyHStack {
                                 ForEach(viewModel.hourlyForecast, id: \.date) { forecast in
@@ -54,8 +52,8 @@ struct WeatherView: View {
                     
                     CardView(title: "10-DAY FORCAST", systemImage: "calendar") {
                         VStack(alignment: .leading) {
-                            ForEach(0..<10) { index in
-                                DailyForecastView()
+                            ForEach(viewModel.dailyForecast, id: \.date) { forecast in
+                                DailyForecastView(forecast: forecast)
                             }
                         }
                     }
