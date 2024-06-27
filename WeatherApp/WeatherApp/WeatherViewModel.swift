@@ -12,14 +12,16 @@ import WeatherKit
 class WeatherViewModel: ObservableObject {
     private let weatherService = WeatherService.shared
     
-    @Published var location: CLLocation?
+    let location: CLLocation
+    
     @Published var error: Error?
     
-    func fetchWeather(for location: CLLocation) async {
-        guard let location = self.location else {
-            print("Location 정보 없음")
-            return
-        }
+    init(location: CLLocation) {
+        self.location = location
+        self.error = nil
+    }
+    
+    func fetchWeather() async {
         do {
             let forcast = try await weatherService.weather(for: location, including: .current)
             dump(forcast)

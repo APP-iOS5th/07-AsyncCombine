@@ -8,12 +8,14 @@
 import Foundation
 import CoreLocation
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     private let manager = CLLocationManager()
 
     @Published var error: Error?
     @Published var currentLocation: CLLocation?
-    @Published var saveLocations: [CLLocation] = []
+    @Published var saveLocations: [CLLocation] = [
+        CLLocation(latitude: 37.56661, longitude: 126.978388)
+    ]
     
     override init() {
         super.init()

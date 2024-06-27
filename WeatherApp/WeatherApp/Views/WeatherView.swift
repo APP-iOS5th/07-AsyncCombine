@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct WeatherView: View {
-    @StateObject var viewModel = WeatherViewModel()
+    let location: CLLocation
+    
+    @StateObject var viewModel: WeatherViewModel
+    
+    init(location: CLLocation) {
+        self.location = location
+        _viewModel = StateObject(wrappedValue: WeatherViewModel(location: location))
+    }
+    
     @State var headerOffset: CGFloat = 0
     
     var body: some View {
@@ -60,5 +69,5 @@ struct WeatherView: View {
 }
 
 #Preview {
-    WeatherView()
+    WeatherView(location: CLLocation(latitude: 0, longitude: 0))
 }

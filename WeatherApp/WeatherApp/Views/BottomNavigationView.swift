@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct BottomNavigationView: View {
+    let selectedIndex: Int
+    let count: Int
+    
     var body: some View {
         HStack {
             Button {
@@ -20,30 +23,15 @@ struct BottomNavigationView: View {
                     .tint(.white)
             }
             Spacer()
-            HStack(alignment: .center) {
-                Image(systemName: "location.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 12, height: 12)
-                    .foregroundStyle(.white)
-                
-                Image(systemName: "location.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 12, height: 12)
-                    .foregroundStyle(Color(UIColor.lightGray))
-                
-                Image(systemName: "circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 8, height: 8)
-                    .foregroundStyle(.white)
-                
-                Image(systemName: "circle.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 8, height: 8)
-                    .foregroundStyle(Color(UIColor.lightGray))
+            HStack {
+                ForEach(0..<count, id: \.self) { index in
+                    Image(systemName: index == 0 ? "location.fill" : "circle.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 8, height: 8)
+                        .foregroundStyle(.white)
+                        .foregroundStyle(selectedIndex == index ? Color.white : Color(UIColor.lightGray))
+                }
             }
             Spacer()
             Button {
@@ -64,6 +52,6 @@ struct BottomNavigationView: View {
 }
 
 #Preview {
-    BottomNavigationView()
+    BottomNavigationView(selectedIndex: 0, count: 2)
         .preferredColorScheme(.dark)
 }
